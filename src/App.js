@@ -59,16 +59,20 @@ function App() {
       <hr />
       <h2 className="input-catatan">Catatan Aktif</h2>
       <div className="card-container">
-        {notes.map(note => (
-          <div key={note.id} className="card">
-            <h3>{note.title}</h3>
-            <p>{note.body}</p>
-            <div className="button-group">
-              <button className="btn-delete" onClick={() => deleteNote(note.id)}>Hapus</button>
-              <button className="btn-archive">Arsipkan</button>
+        {notes.length > 0 ? (
+          notes.map(note => (
+            <div key={note.id} className="card">
+              <h3>{note.title}</h3>
+              <p>{note.body}</p>
+              <div className="button-group">
+                <button className="btn-delete" onClick={() => deleteNote(note.id)}>Hapus</button>
+                <button className="btn-archive">Arsipkan</button>
+              </div>
             </div>
-          </div>
-        ))}
+          ))
+        ) : (
+          <p>Tidak ada catatan yang tersedia.</p>
+        )}
       </div>
     </div>
   );
